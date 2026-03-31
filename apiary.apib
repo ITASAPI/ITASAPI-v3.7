@@ -10,19 +10,20 @@ VERSION: 3.6
 **** Warning: at this point, ITAS API does not support asynchronous or multithreading calls for POST, PUT, PATCH and DELETE requests. Async or multithreading requests could result in various Error messages, or even a corruption of data in extreme cases and are therefore not supported. ****
 <br />
 <br />
-<strong>Release notes</strong> (01<sup>th</sup> April 2026.)
+<strong>Release notes</strong> (01<sup>st</sup> April 2026.)
 
 ## New Endpoints
 
 <ul>
-<li>Global Market Data <b>Cotton Spot Records</b>: POST Create Cotton Spot Records,<a href="/#reference/global-market-data/cotton-spot-records"> Link</a></li>
-<li>Inventory Deliveries <b>Quality Results Create</b>: POST Create Quality Results,<a href="/#reference/inventory-deliveries/quality-results-create"> Link</a></li>
+<li>None</li>
 </ul>
 
 ## Updated Endpoints
 
 <ul>
-<li>None</li>
+<li>Accounting Transactions <b>List Additional Invoicing Details </b>: Additional Property QRCode</li>
+<li>Accounting Transactions <b>Create Additional Invoicing Details </b>: Additional Property QRCode</li>
+<li>Accounting Transactions <b>Update Additional Invoicing Details </b>: Additional Property QRCode</li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -2486,6 +2487,7 @@ Data Objects and endpoints providing access to accounting transactions generated
 |Timestamp|Timestamp|`datetime`||||
 |SobreTimestamp|Sombre Timestamp|`datetime`||||
 |EInvoiceDate|EInvoice Date|`datetime`||||
+|QRCode|QR Code|`string`|4000|||
 
 + Request
     [AccessToken][]
@@ -2542,6 +2544,7 @@ Data Objects and endpoints providing access to accounting transactions generated
 |Timestamp|Timestamp|`datetime`||||
 |SobreTimestamp|Sobre Timestamp|`datetime`||||
 |EInvoiceDate|EInvoice Date|`datetime`||||
+|QRCode|QR Code|`string`|4000|||
 
 <hr />
 
@@ -2600,6 +2603,7 @@ Data Objects and endpoints providing access to accounting transactions generated
 |Timestamp|Timestamp|`datetime`||||
 |SobreTimestamp|Sobre Timestamp|`datetime`||||
 |EInvoiceDate|EInvoice Date|`datetime`||||
+|QRCode|QR Code|`string`|4000|||
 
 + Request (application/json)
     + Header
@@ -5765,6 +5769,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Timestamp: `2015-12-01T05:35:00Z` (string)
 + SobreTimestamp: `2015-12-01T05:35:00Z` (string)
 + EInvoiceDate: `2015-12-01T05:35:00Z` (string)
++ QRCode: `iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQAAAACFI5MzAAABGUlEQVR42u2YSw7DIAxEzYpjcFM+N+UYrErtMUkjpd2WWQQlyudtLI89JpH5a8lDHvJnUkVXmkMPKcMeAg1peo70inrpRbm/ISFDwkhNX4NUSWxEo26WVFKisgc2ArWncSO3OthJvEs0nTju/bOT+NJKzJK++c5OovJWRIob2AwNsf6YXWJ3eFGbgXS4skgEGafaDGSifVONS/ZCQ/Q2YI5l8BdSS0ImwtTezehjiM9C3FG8fbVdykft/URTeEY918hlIZZFC9Yq0Rw6ns63nyxXtkTCYK6VuJv4NKvmMdgFMBHfBbRjb8JFxgoWW04RPmKfEaY2pgcZcT/OsL3GQ5baFrUN23iZZrvJ6pKjDJFXFvL8P3jIfvIGvNX7jsCaJvEAAAAASUVORK5CYII=`
 
 
 ## AdditionalInvoiceDet (object)
@@ -5790,6 +5795,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Timestamp: `2015-12-01T05:35:00Z` (string)
 + SobreTimestamp: `2015-12-01T05:35:00Z` (string)
 + EInvoiceDate: `2015-12-01T05:35:00Z` (string)
++ QRCode: `iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQAAAACFI5MzAAABGUlEQVR42u2YSw7DIAxEzYpjcFM+N+UYrErtMUkjpd2WWQQlyudtLI89JpH5a8lDHvJnUkVXmkMPKcMeAg1peo70inrpRbm/ISFDwkhNX4NUSWxEo26WVFKisgc2ArWncSO3OthJvEs0nTju/bOT+NJKzJK++c5OovJWRIob2AwNsf6YXWJ3eFGbgXS4skgEGafaDGSifVONS/ZCQ/Q2YI5l8BdSS0ImwtTezehjiM9C3FG8fbVdykft/URTeEY918hlIZZFC9Yq0Rw6ns63nyxXtkTCYK6VuJv4NKvmMdgFMBHfBbRjb8JFxgoWW04RPmKfEaY2pgcZcT/OsL3GQ5baFrUN23iZZrvJ6pKjDJFXFvL8P3jIfvIGvNX7jsCaJvEAAAAASUVORK5CYII=`
 
 ## AdditionalInvDeatilResponse (object)
 + InvoiceDetailId: 10 (number)
@@ -5814,6 +5820,7 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + Timestamp: `2015-12-01T05:35:00Z` (string)
 + SobreTimestamp: `2015-12-01T05:35:00Z` (string)
 + EInvoiceDate: `2015-12-01T05:35:00Z` (string)
++ QRCode: `iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQAAAACFI5MzAAABGUlEQVR42u2YSw7DIAxEzYpjcFM+N+UYrErtMUkjpd2WWQQlyudtLI89JpH5a8lDHvJnUkVXmkMPKcMeAg1peo70inrpRbm/ISFDwkhNX4NUSWxEo26WVFKisgc2ArWncSO3OthJvEs0nTju/bOT+NJKzJK++c5OovJWRIob2AwNsf6YXWJ3eFGbgXS4skgEGafaDGSifVONS/ZCQ/Q2YI5l8BdSS0ImwtTezehjiM9C3FG8fbVdykft/URTeEY918hlIZZFC9Yq0Rw6ns63nyxXtkTCYK6VuJv4NKvmMdgFMBHfBbRjb8JFxgoWW04RPmKfEaY2pgcZcT/OsL3GQ5baFrUN23iZZrvJ6pKjDJFXFvL8P3jIfvIGvNX7jsCaJvEAAAAASUVORK5CYII=`
 
 ## AlternateExchangeRate (object)
 + CurrencyId: GBP (string)
