@@ -15,7 +15,7 @@ VERSION: 3.7
 ## New Endpoints
 
 <ul>
-<li>None</li>
+<li>Accounting Transactions <b>List Additional Invoicing Details </b>: Additional Property QRCode,<a href="/#reference/accounting-transactions/additional-invoicing-details-list"> Link</a></li>
 </ul>
 
 ## Updated Endpoints
@@ -3559,8 +3559,93 @@ Endpoints covering reading data associated with Physical Contracts (trades)
 
 # Group Finance-Banking
 
+## Letter Of Credit Create (Company Validation) [/Finance/{TradingEntityId}/Banking/LetterOfCreditFull]
+`POST` Create Letter of Credit, with full company validation. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+### Create Letter Of Credit (Company Validation) [POST]
+
+<b>Request Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|Key20|Documentary Credit Number|`string`|4000|First 25 char used for L/C Ref|Required|
+|CurrencyCode|Currency Code|`string`|3||Required|
+|BeneficiaryCode|Beneficiary Code|`string`|10||Required|
+|IssuingBankCode|Issuing Bank Code|`string`|10||Required|
+|OpenDate|Open Date|`datetime`|20||Required|
+|ExpiryDate|Expiry Date|`datetime`|20|||
+|LatestShipDate|Latest Ship Date|`datetime`|20|||
+|DepartmentCode|Department Code|`string`|4|||
+|InOrOut|In Or Out|`string`|3|Default is `In`|`In` or `Out`|
+|LcType|LC Type|`string`|30|||
+|Key23|Reference to Pre Advice|`string`|4000|||
+|Key31C|Date of Issue|`string`|20|||
+|Key31D|Date and Place of Expiry|`string`|4000|||
+|Key41A|Available With|`string`|4000|||
+|Key42D|Bank on which Drafts are drawn|`string`|4000|||
+|Key51A|Applicant Bank|`string`|4000|||
+|Key50|Applicant|`string`|4000|||
+|Key59|Beneficiary|`string`|4000|||
+|Key32B|Currency code and Amount|`string`|255|||
+|Key39A|Percentage Credit Amount Tolerance|`string`|10|||
+|Key39B|Maximum Credit Amount|`string`|50|||
+|Key39C|Additional Amount Covered|`string`|50|||
+|Key41D|Available with, By|`string`|4000|||
+|Key42C|Drafts at|`string`|4000|||
+|Key42A|Drawee|`string`|4000|||
+|Key42M|Mixed Payments Details|`string`|4000|||
+|Key42P|Defferred Payment details|`string`|4000|||
+|Key43P|Partial Shipments|`string`|4000|||
+|Key43T|Transshipment|`string`|4000|||
+|Key44A|Loading/Dispatch/Charge from|`string`|4000|||
+|Key44B|For Transportation to|`string`|4000|||
+|Key44C|Latest Date of Shipment|`string`|20|||
+|Key44D|Shipment Period|`string`|4000|||
+|Key44E|Departure Info|`string`|4000|||
+|Key44F|Destination Info|`string`|4000|||
+|Key45A|Description of Goods/Services|`string`|4000|||
+|Key46A|Documents Required|`string`|8000|||
+|Key47A|Additional Conditions|`string`|8000|||
+|Key71B|Charges|`string`|4000|||
+|Key48|Period for Presentation|`string`|4000|||
+|Key49|Confirmation Instructions|`string`|8000|||
+|Key53A|Reimbursing Bank|`string`|4000|||
+|Key78|Instruction to Paying/Accepting/Negotiation Bank|`string`|8000|||
+|Key57A|Advise Through Bank|`string`|8000|||
+|Key72|Sender to Receive Information|`string`|8000|||
+
+
+<hr />
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|LetterOfCreditReference|Letter of Credit Reference|`string`||||
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (LetterOfCredit)
+
++ Response 201 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (LetterOfCreditResponse)
+        + Response (201 CreateResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
 ## Letter Of Credit Create [/Finance/{TradingEntityId}/Banking/LetterOfCredit]
-`POST` Create Letter of Credit. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+`POST` Create Letter of Credit. without company validation * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Create Letter Of Credit [POST]
 
 <b>Request Body</b>
@@ -3568,9 +3653,19 @@ Endpoints covering reading data associated with Physical Contracts (trades)
 |--------|-----------|----|----------|-----|----------|
 |Key20|Documentary Credit Number|`string`|4000|First 25 char used for L/C Ref|Required|
 |CurrencyCode|Currency Code|`string`|3||Required|
+|BeneficiaryCode|Beneficiary Code|`string`|10|||
+|IssuingBankCode|Issuing Bank Code|`string`|10|||
+|OpenDate|Open Date|`datetime`|20|||
+|ExpiryDate|Expiry Date|`datetime`|20|||
+|LatestShipDate|Latest Ship Date|`datetime`|20|||
+|DepartmentCode|Department Code|`string`|4|||
+|InOrOut|In Or Out|`string`|3|Default is `In`|`In` or `Out`|
+|LcType|LC Type|`string`|30|||
 |Key23|Reference to Pre Advice|`string`|4000|||
 |Key31C|Date of Issue|`string`|20|||
 |Key31D|Date and Place of Expiry|`string`|4000|||
+|Key41A|Available With|`string`|4000|||
+|Key42D|Bank on which Drafts are drawn|`string`|4000|||
 |Key51A|Applicant Bank|`string`|4000|||
 |Key50|Applicant|`string`|4000|||
 |Key59|Beneficiary|`string`|4000|||
@@ -6537,9 +6632,19 @@ The CommodityFullCode is a five part key made up of the following values seperat
 ## LetterOfCredit (object)
 + Key20: 134323239974 (string)
 + CurrencyCode: GBP (string)
++ BeneficiaryCode: ABBOTT01.P (string)
++ IssuingBankCode: HSBC.P (string)
++ OpenDate: `2026-07-21` (string)
++ ExpiryDate: `2026-08-21` (string)
++ LatestShipDate: `2026-07-21` (string)
++ DepartmentCode: 100 (string)
++ InOrOut: In (string)
++ LcType: Type 1 (string)
 + Key23: 74992323431 (string)
 + Key31C: 231122 (string)
 + Key31D: 240127IN USA (string)
++ Key41A: BK ABC (string)
++ Key42D: AB BANK, UK (string)
 + Key51A: AP PLICANT BANK, UK (string)
 + Key50: AP PLICANT, UK (string)
 + Key59: BEN EFICIARY (string)
