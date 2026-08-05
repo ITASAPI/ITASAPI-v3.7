@@ -15,15 +15,13 @@ VERSION: 3.7
 ## New Endpoints
 
 <ul>
-<li>Accounting Transactions <b>List Additional Invoicing Details </b>: Additional Property QRCode,<a href="/#reference/accounting-transactions/additional-invoicing-details-list"> Link</a></li>
+<li>Finanace-Banking <b>Letter Of Credit Create - Company Validation </b>: POST Create Letter Of Credit - Company Validation,<a href="/#reference/finance-banking/letter-of-credit-create-company-validation"> Link</a></li>
 </ul>
 
 ## Updated Endpoints
 
 <ul>
-<li>Accounting Transactions <b>List Additional Invoicing Details </b>: Additional Property QRCode,<a href="/#reference/accounting-transactions/additional-invoicing-details-list"> Link</a></li>
-<li>Accounting Transactions <b>Create Additional Invoicing Details </b>: Additional Property QRCode,<a href="/#reference/accounting-transactions/additional-invoicing-details-create"> Link</a></li>
-<li>Accounting Transactions <b>Update Additional Invoicing Details </b>: Additional Property QRCode,<a href="/#reference/accounting-transactions/additional-invoicing-details"> Link</a></li>
+<li>Finanace-Banking <b>Create Letter Of Credit </b>: Additional Properties BeneficiaryCode, IssuingBankCode, OpenDate, ExpiryDate, LatestShipDate, DepartmentCode, InOrOut, LcType, Key41A, Key42D,<a href="/#reference/finance-banking/letter-of-credit-create"> Link</a></li>
 </ul>
 <chandiv>** ends ** </div>
 
@@ -3574,7 +3572,7 @@ Endpoints covering reading data associated with Physical Contracts (trades)
 |ExpiryDate|Expiry Date|`datetime`|20|||
 |LatestShipDate|Latest Ship Date|`datetime`|20|||
 |DepartmentCode|Department Code|`string`|4|||
-|InOrOut|In Or Out|`string`|3|Default is `In`|`In` or `Out`|
+|InOrOut|In Or Out|`string`|3|Defaulted to `In`|`In` or `Out`|
 |LcType|LC Type|`string`|30|||
 |Key23|Reference to Pre Advice|`string`|4000|||
 |Key31C|Date of Issue|`string`|20|||
@@ -3659,7 +3657,7 @@ Endpoints covering reading data associated with Physical Contracts (trades)
 |ExpiryDate|Expiry Date|`datetime`|20|||
 |LatestShipDate|Latest Ship Date|`datetime`|20|||
 |DepartmentCode|Department Code|`string`|4|||
-|InOrOut|In Or Out|`string`|3|Default is `In`|`In` or `Out`|
+|InOrOut|In Or Out|`string`|3|Defaulted to `In`|`In` or `Out`|
 |LcType|LC Type|`string`|30|||
 |Key23|Reference to Pre Advice|`string`|4000|||
 |Key31C|Date of Issue|`string`|20|||
