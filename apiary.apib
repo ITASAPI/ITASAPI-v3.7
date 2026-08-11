@@ -23,9 +23,11 @@ VERSION: 3.7
 <ul>
 <li>Finanace-Banking <b>Create Letter Of Credit </b>: Additional Properties:
 <br />
-BeneficiaryCode, IssuingBankCode, OpenDate,
+BeneficiaryCode, IssuingBankCode, AdvisingBankCode,
 <br />
-ExpiryDate, LatestShipDate, DepartmentCode,
+OpenDate, ExpiryDate, LatestShipDate, DepartmentCode,
+<br />
+ConfirmedToBankDate, FullyReceivedDate, BriefReceivedDate,
 <br />
 InOrOut, LcType, Key41A, Key42D,
 <br />
@@ -3578,7 +3580,11 @@ Endpoints covering reading data associated with Physical Contracts (trades)
 |IssuingBankCode|Issuing Bank Code|`string`|10||Required|
 |OpenDate|Open Date|`datetime`|20||Required|
 |ExpiryDate|Expiry Date|`datetime`|20|||
+|ConfirmedToBankDate|Confirmed To Bank Date|`datetime`|20|||
+|FullyReceivedDate|Fully Received Date|`datetime`|20|||
+|BriefReceivedDate|Brief Received Date|`datetime`|20|||
 |LatestShipDate|Latest Ship Date|`datetime`|20|||
+|AdvisingBankCode|Advising Bank Code|`string`|10|||
 |DepartmentCode|Department Code|`string`|4|||
 |InOrOut|In Or Out|`string`|3|Defaulted to `In`|`In` or `Out`|
 |LcType|LC Type|`string`|30|||
@@ -3663,7 +3669,11 @@ Endpoints covering reading data associated with Physical Contracts (trades)
 |IssuingBankCode|Issuing Bank Code|`string`|10|||
 |OpenDate|Open Date|`datetime`|20|||
 |ExpiryDate|Expiry Date|`datetime`|20|||
+|ConfirmedToBankDate|Confirmed To Bank Date|`datetime`|20|||
+|FullyReceivedDate|Fully Received Date|`datetime`|20|||
+|BriefReceivedDate|Brief Received Date|`datetime`|20|||
 |LatestShipDate|Latest Ship Date|`datetime`|20|||
+|AdvisingBankCode|Advising Bank Code|`string`|10|||
 |DepartmentCode|Department Code|`string`|4|||
 |InOrOut|In Or Out|`string`|3|Defaulted to `In`|`In` or `Out`|
 |LcType|LC Type|`string`|30|||
@@ -6642,7 +6652,11 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + IssuingBankCode: HSBC.P (string)
 + OpenDate: `2026-07-21` (string)
 + ExpiryDate: `2026-08-21` (string)
++ ConfirmedToBankDate: `2026-08-29` (string)
++ FullyReceivedDate: `2026-08-28` (string)
++ BriefReceivedDate: `2026-08-21` (string)
 + LatestShipDate: `2026-07-21` (string)
++ AdvisingBankCode: BK ADV (string)
 + DepartmentCode: 100 (string)
 + InOrOut: In (string)
 + LcType: Type 1 (string)
