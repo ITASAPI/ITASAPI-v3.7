@@ -3656,6 +3656,88 @@ Endpoints covering reading data associated with Physical Contracts (trades)
 + Response 405 (application/json; charset=utf-8)
     + Attributes (405 Response)
 
+## Letter Of Credit Update - Company Validation [/Finance/{TradingEntityId}/Banking/LetterOfCreditFull/{LetterOfCreditReference}]
+`PATCH` Update Letter of Credit, with full company validation. Only fields present in the request body are updated. * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
+### Update Letter Of Credit - Company Validation [PATCH]
+
+<b>Request Body</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|Key20|Documentary Credit Number|`string`|4000|First 25 char used for L/C Ref|Required|
+|ExpiryDate|Expiry Date|`datetime`|20|||
+|ConfirmedToBankDate|Confirmed To Bank Date|`datetime`|20|||
+|FullyReceivedDate|Fully Received Date|`datetime`|20|||
+|BriefReceivedDate|Brief Received Date|`datetime`|20|||
+|LatestShipDate|Latest Ship Date|`datetime`|20|||
+|Key23|Reference to Pre Advice|`string`|4000|||
+|Key31C|Date of Issue|`string`|20|||
+|Key31D|Date and Place of Expiry|`string`|4000|||
+|Key41A|Available With|`string`|4000|||
+|Key42D|Bank on which Drafts are drawn|`string`|4000|||
+|Key51A|Applicant Bank|`string`|4000|||
+|Key50|Applicant|`string`|4000|||
+|Key59|Beneficiary|`string`|4000|||
+|Key32B|Currency code and Amount|`string`|255|||
+|Key39A|Percentage Credit Amount Tolerance|`string`|10|||
+|Key39B|Maximum Credit Amount|`string`|50|||
+|Key39C|Additional Amount Covered|`string`|50|||
+|Key41D|Available with, By|`string`|4000|||
+|Key42C|Drafts at|`string`|4000|||
+|Key42A|Drawee|`string`|4000|||
+|Key42M|Mixed Payments Details|`string`|4000|||
+|Key42P|Defferred Payment details|`string`|4000|||
+|Key43P|Partial Shipments|`string`|4000|||
+|Key43T|Transshipment|`string`|4000|||
+|Key44A|Loading/Dispatch/Charge from|`string`|4000|||
+|Key44B|For Transportation to|`string`|4000|||
+|Key44C|Latest Date of Shipment|`string`|20|||
+|Key44D|Shipment Period|`string`|4000|||
+|Key44E|Departure Info|`string`|4000|||
+|Key44F|Destination Info|`string`|4000|||
+|Key45A|Description of Goods/Services|`string`|4000|||
+|Key46A|Documents Required|`string`|8000|||
+|Key47A|Additional Conditions|`string`|8000|||
+|Key71B|Charges|`string`|4000|||
+|Key48|Period for Presentation|`string`|4000|||
+|Key49|Confirmation Instructions|`string`|8000|||
+|Key53A|Reimbursing Bank|`string`|4000|||
+|Key78|Instruction to Paying/Accepting/Negotiation Bank|`string`|8000|||
+|Key57A|Advise Through Bank|`string`|8000|||
+|Key72|Sender to Receive Information|`string`|8000|||
+
+
+<hr />
+
+<b>Response Data</b>
+|Property|Description|Type|Max Length|Notes|Constraint|
+|--------|-----------|----|----------|-----|----------|
+|LetterOfCreditReference|Letter of Credit Reference|`string`||||
+
++ Parameters
+    + TradingEntityId (required, string, `JT`) ... Identify specific trading entity. 
+
++ Request (application/json)
+    + Header
+
+            AccessToken: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1bmlxdWVfbmFtZSI6ImRlZXBhayIsInN1YiI6ImRlZXBhayIsInJvbGUiOlsiNzk5YjhhNDEtYWI0ZS00MTBhLWI5MTktYzU3ZWFlMmFlMDI5IiwiZGVlcGFrIiwiQVNQLk5FVCBJZGVudGl0eSIsIjViNDE4ODE2LTI3ZjQtNGRlOC1iNmMyLTJlZTcxNjI3ZmJmYyIsIkFkbWluIiwiU3VwZXJBZG1pbiJdLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMjciLCJhdWQiOiI4MjkzNjk0MjJmNzA0NTIzODUxZDk4NTU2YjZkNTQyYiIsImV4cCI6MTQ1OTQzMjk0MSwibmJmIjoxNDU5NDMxMTQxfQ.JgPGxt0Ok5baKx0YMXlO6D9kUYrCWM-Kma9b9iMW8tg
+
+    + Attributes (LetterOfCreditUpdate)
+
++ Response 200 (application/json; charset=utf-8)
+    + Attributes 
+        + Data (LetterOfCreditResponse)
+        + Response (200 UpdateResponse)
+
++ Response 400 (application/json; charset=utf-8)
+    + Attributes (400 Response)
+
++ Response 404 (application/json; charset=utf-8)
+    + Attributes (404 Response)
+
++ Response 405 (application/json; charset=utf-8)
+    + Attributes (405 Response)
+
+
 ## Letter Of Credit Create [/Finance/{TradingEntityId}/Banking/LetterOfCredit]
 `POST` Create Letter of Credit. without company validation * <a href="/#introduction/disclaimer"> (Disclaimer)</a>
 ### Create Letter Of Credit [POST]
@@ -6660,6 +6742,50 @@ The CommodityFullCode is a five part key made up of the following values seperat
 + DepartmentCode: 100 (string)
 + InOrOut: In (string)
 + LcType: Type 1 (string)
++ Key23: 74992323431 (string)
++ Key31C: 231122 (string)
++ Key31D: 240127IN USA (string)
++ Key41A: BK ABC (string)
++ Key42D: AB BANK, UK (string)
++ Key51A: AP PLICANT BANK, UK (string)
++ Key50: AP PLICANT, UK (string)
++ Key59: BEN EFICIARY (string)
++ Key32B: GBP1144165,25 (string)
++ Key39A: 3/3 (string)
++ Key39B: 2500000 (string)
++ Key39C: TOLERANCE IS ALLOWED IN BOTH CREDIT AMOUNT AND GOODS QUANTITY (string)
++ Key41D: ANY BANK BY NEGOTIATION (string)
++ Key42C: AT 90 DAYS AFTER SIGHT FOR 100 PCT OF INVOICE VALUE. (string)
++ Key42A: BKUKAAA999 Bank of UK Limited, United Kingdom (string)
++ Key42M: MIXED FOR INVOICE (string)
++ Key42P: NO DEFFERRED PAYMENTS (string)
++ Key43P: ALLOWED (string)
++ Key43T: ALLOWED (string)
++ Key44A: HULL (string)
++ Key44B: NEW YORK (string)
++ Key44C: 241231 (string)
++ Key44D: MAR 24 - DEC 24 (string)
++ Key44E: ANY HULL PORT (string)
++ Key44F: ANY NEW YORK PORT (string)
++ Key45A: BRAZILIAN COTTON (string)
++ Key46A: FULL SET (string)
++ Key47A: ALL DOCUMENTS TO BE FORWARDED IN ONE COVER (string)
++ Key71B: NONE (string)
++ Key48: 21/FROM SHIPMENT BUT WITHIN LC EXPIRY (string)
++ Key49: CONFIRM (string)
++ Key53A: ZZBLUK99XXX (string)
++ Key78: ALL DOCUMENTS MUST BE SENT BY NEGOTIATING/PRESENTING BANK (string)
++ Key57A: AABLUK11XXX (string)
++ Key72: TRUE (string)
+
+## LetterOfCreditUpdate (object)
++ Key20: 134323239974 (string)
++ OpenDate: `2026-07-21` (string)
++ ExpiryDate: `2026-08-21` (string)
++ ConfirmedToBankDate: `2026-08-29` (string)
++ FullyReceivedDate: `2026-08-28` (string)
++ BriefReceivedDate: `2026-08-21` (string)
++ LatestShipDate: `2026-07-21` (string)
 + Key23: 74992323431 (string)
 + Key31C: 231122 (string)
 + Key31D: 240127IN USA (string)
